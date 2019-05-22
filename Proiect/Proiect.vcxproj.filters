@@ -24,6 +24,18 @@
     <ClInclude Include="RepoFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bilet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Autobuz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContBancar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -36,6 +48,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RepoFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bilet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Autobuz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContBancar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

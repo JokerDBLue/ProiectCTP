@@ -151,11 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Autobuz.h" />
+    <ClInclude Include="Bilet.h" />
+    <ClInclude Include="ContBancar.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Repo.h" />
     <ClInclude Include="RepoFile.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Autobuz.cpp" />
+    <ClCompile Include="Bilet.cpp" />
+    <ClCompile Include="ContBancar.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -165,6 +172,7 @@
     <ClCompile Include="Proiect.cpp" />
     <ClCompile Include="Repo.cpp" />
     <ClCompile Include="RepoFile.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
