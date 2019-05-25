@@ -19,8 +19,8 @@ public:
 	void setZona(int z);
 	void setValabilitate(int v);
 	bool operator==(Bilet &b);
-	Bilet operator=(Bilet &b);
-	friend ostream &operator<<(ostream os, const Bilet &b);
+	Bilet operator=(const Bilet &b);
+	friend ostream &operator<<(ostream& os, const Bilet &b);
 
 	~Bilet();
 };

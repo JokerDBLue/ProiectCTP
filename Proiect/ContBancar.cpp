@@ -7,7 +7,7 @@ ContBancar::ContBancar()
 	this->cod = "";
 	this->codspate = "";
 }
-ContBancar::ContBancar(string cod, string codspate, int balans)
+ContBancar::ContBancar(string cod, string codspate, float balans)
 {
 	this->balans = balans;
 	this->cod = cod;
@@ -21,7 +21,7 @@ string ContBancar::GetCodSpate()
 {
 	return codspate;
 }
-int ContBancar::GetBalans()
+float ContBancar::GetBalans()
 {
 	return balans;
 }
@@ -33,6 +33,18 @@ void ContBancar::SetCod(string cod)
 void ContBancar::SetCodSpate(string codspate)
 {
 	this->codspate = codspate;
+}
+
+void ContBancar::SetBalans(float balans)
+{
+	this->balans = balans;
+}
+
+bool ContBancar::operator==(const ContBancar & cb)
+{
+	if ((cb.cod == this->cod) && (cb.codspate == this->codspate))
+		return true;
+	return false;
 }
 
 ContBancar::~ContBancar()

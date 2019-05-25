@@ -14,8 +14,6 @@ public:
 	void addElem(T);
 	T getElem(int i);
 	bool existance(const T t);
-	//void readFromFile(string file_name);
-	//void addToFile(string file_name);
 	vector<T> getAll();
 	int getSize();
 	void dltElem(int i);

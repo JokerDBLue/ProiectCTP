@@ -25,17 +25,17 @@ Bilet::Bilet(const Bilet & b)
 
 float Bilet::getPret()
 {
-	return this->pret;
+	return pret;
 }
 
 int Bilet::getZona()
 {
-	return this->zona;
+	return zona;
 }
 
 int Bilet::getValabilitate()
 {
-	return this->valabilitate;
+	return valabilitate;
 }
 
 void Bilet::setPret(float p)
@@ -60,7 +60,7 @@ bool Bilet::operator==(Bilet & b)
 	return false;
 }
 
-Bilet Bilet::operator=(Bilet & b)
+Bilet Bilet::operator=(const Bilet & b)
 {
 	if (this != &b)
 	{
@@ -77,10 +77,10 @@ Bilet::~Bilet()
 {
 }
 
-ostream & operator<<(ostream os, const Bilet & b)
+ostream & operator<<(ostream & os, const Bilet& b)
 {
-	os << "Pret/calatorie: " << b.pret << endl;
-	os << "Zona: " << b.zona << endl;
-	os << "Valabilitate: " << b.valabilitate << endl;
+	os << "Zona: " << b.zona << "; ";
+	os << "Valabilitate: " << b.valabilitate << "; ";
+	os << "Pret/calatorie: " << b.pret;
 	return os;
 }

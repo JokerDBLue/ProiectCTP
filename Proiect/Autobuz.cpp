@@ -2,28 +2,36 @@
 
 
 
-Autobuz::Autobuz() :Bilet()
+Autobuz::Autobuz()
 {
+	this->zona = 1;
 	this->numar = "";
 	this->capete = "";
 	this->orar;
 	this->ruta;
 }
 
-Autobuz::Autobuz(float pret, int zona, int valabilitate, string numar, string capete, vector<string> orar, vector<string> ruta) :Bilet(pret, zona, valabilitate)
+Autobuz::Autobuz(int zona, string numar, string capete, vector<string> orar, vector<string> ruta)
 {
+	this->zona = zona;
 	this->numar = numar;
 	this->capete = capete;
 	this->orar = orar;
 	this->ruta = ruta;
 }
 
-Autobuz::Autobuz(const Autobuz & a) :Bilet(a)
+Autobuz::Autobuz(const Autobuz & a)
 {
+	this->zona = a.zona;
 	this->numar = a.numar;
 	this->capete = a.capete;
 	this->orar = a.orar;
 	this->ruta = a.ruta;
+}
+
+int Autobuz::getZona()
+{
+	return this->zona;
 }
 
 string Autobuz::getNumar()
@@ -44,6 +52,11 @@ vector<string> Autobuz::getOrar()
 vector<string> Autobuz::getRuta()
 {
 	return this->ruta;
+}
+
+void Autobuz::setZona(int z)
+{
+	this->zona = z;
 }
 
 void Autobuz::setNumar(string nr)
@@ -68,7 +81,7 @@ void Autobuz::setRuta(vector<string> r)
 
 ostream & operator<<(ostream & os, const Autobuz a)
 {
-	os << "Autobuzul " << a.numar << ": " << a.capete << endl;
+	os << "Autobuzul " << a.numar << ": " << a.capete << endl << "Zona " << a.zona << endl;
 	os << "Ruta: " << endl;
 	for (size_t i = 0; i < a.ruta.size(); i++)
 		os << a.ruta[i] << ", ";
@@ -79,4 +92,6 @@ ostream & operator<<(ostream & os, const Autobuz a)
 }
 Autobuz::~Autobuz()
 {
+	this->orar.clear();
+	this->ruta.clear();
 }

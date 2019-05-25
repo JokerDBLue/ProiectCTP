@@ -154,7 +154,8 @@
     <ClInclude Include="Autobuz.h" />
     <ClInclude Include="Bilet.h" />
     <ClInclude Include="ContBancar.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="CosCumparaturi.h" />
     <ClInclude Include="Repo.h" />
     <ClInclude Include="RepoFile.h" />
     <ClInclude Include="User.h" />
@@ -163,12 +164,8 @@
     <ClCompile Include="Autobuz.cpp" />
     <ClCompile Include="Bilet.cpp" />
     <ClCompile Include="ContBancar.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="CosCumparaturi.cpp" />
     <ClCompile Include="Proiect.cpp" />
     <ClCompile Include="Repo.cpp" />
     <ClCompile Include="RepoFile.cpp" />

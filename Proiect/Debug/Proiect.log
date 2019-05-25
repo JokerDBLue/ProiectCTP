@@ -1,7 +1,5 @@
-﻿  Autobuz.cpp
-  Bilet.cpp
-  ContBancar.cpp
-  User.cpp
+﻿  Controller.cpp
+  Proiect.cpp
+  RepoFile.cpp
   Generating Code...
-d:\dateproiect\proiect\bilet.cpp(85): warning C4172: returning address of local variable or temporary: os
   Proiect.vcxproj -> D:\DateProiect\Proiect\Debug\Proiect.exe
