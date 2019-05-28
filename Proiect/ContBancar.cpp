@@ -13,6 +13,14 @@ ContBancar::ContBancar(string cod, string codspate, float balans)
 	this->cod = cod;
 	this->codspate = codspate;
 }
+
+ContBancar::ContBancar(const ContBancar & cb)
+{
+	this->cod = cb.cod;
+	this->codspate = cb.codspate;
+	this->balans = cb.balans;
+}
+
 string ContBancar::GetCod()
 {
 	return cod;

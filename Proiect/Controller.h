@@ -1,19 +1,22 @@
 #pragma once
-#include "RepoFile.h"
-#include "Bilet.h"
-#include "Autobuz.h"
-class Controller
+#include "Login.h"
+
+class Controller: public Login
 {
 private:
-	//RepoFile user;
-	Repo<Bilet> bilet;
-	Repo<Autobuz> autobuz;
+	//Repo<User> useri e in clasa Login, de aceea nu mai e declarat aici
+	RepoFile<Bilet> bilete; // memoreaza din fisier biletele valabile
+	RepoFile<Autobuz> autobuze; // memoreaza toate autobuzele din fisiere
 public:
 	Controller();
-	//Repo<Autobuz> cautareAuto(string inceput, string final, string data);
-	//int cumparareBilete(int nrBilete, int zona, float numerar)
+	void addAuto(const Autobuz& a);
+	Repo<Autobuz> cautareAuto(string inceput, string final, string data);
+	Repo<Bilet> bileteValabile();
+	void cumparareBilete(int nrBilete, int nrUser, int zona, float numerar);
+	Repo<Bilet> vizualizireInventar(int nrUser);
+	void golireCos();
+	void finalizarePlata(string cod, string codSpate, float balans, int nrUser);
 	//accesare clasa login
-	//Reminder: creeaza cos de cumparaturi
 	~Controller();
 };
 

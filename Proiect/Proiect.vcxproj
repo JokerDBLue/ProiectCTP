@@ -156,8 +156,10 @@
     <ClInclude Include="ContBancar.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="CosCumparaturi.h" />
+    <ClInclude Include="Login.h" />
     <ClInclude Include="Repo.h" />
     <ClInclude Include="RepoFile.h" />
+    <ClInclude Include="TesteAutobuz.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
@@ -166,9 +168,11 @@
     <ClCompile Include="ContBancar.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="CosCumparaturi.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="Proiect.cpp" />
     <ClCompile Include="Repo.cpp" />
     <ClCompile Include="RepoFile.cpp" />
+    <ClCompile Include="TesteAutobuz.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

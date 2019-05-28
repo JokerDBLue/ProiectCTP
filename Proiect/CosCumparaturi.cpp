@@ -95,7 +95,7 @@ ostream & operator<<(ostream & os, const CosCumparaturi cc)
 	float total = 0;
 	for (size_t i = 0; i < cc.b.size(); i++)
 	{
-		os << cc.b[i] << "x" << cc.cant[i] << " = " << cc.pret[i] <<endl;
+		os << i << ". " << cc.b[i] << "x" << cc.cant[i] << " = " << cc.pret[i] <<endl;
 		total += cc.pret[i];
 	}
 	os << "                                            Total = " << total;

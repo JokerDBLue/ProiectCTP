@@ -13,10 +13,11 @@ public:
 	virtual ~Repo();
 	void addElem(T);
 	T getElem(int i);
-	bool existance(const T t);
+	//bool existance(const T t);
 	vector<T> getAll();
 	int getSize();
 	void dltElem(int i);
+	int existenta(const T& t);
 	friend ostream & operator<< <>(ostream & os, const Repo<T>  r);
 };
 
@@ -46,16 +47,16 @@ template <class T> vector<T> Repo<T>::getAll() {
 }
 
 template <class T> T Repo<T>::getElem(int i) {
-	return v[i];
+	return v.at(i);
 }
-
+/*
 template <class T> bool Repo<T>::existance(const T t) {
 	for (size_t i = 0; i < v.size(); i++) {
 		if (v[i] == t)
 			return true;
 	}
 	return false;
-}
+}*/
 
 template <class T> int Repo<T>::getSize() {
 	return v.size();
@@ -63,6 +64,15 @@ template <class T> int Repo<T>::getSize() {
 
 template <class T> void Repo<T>::dltElem(int i) {
 	this->v.erase(v.begin() + i);
+}
+
+template <class T> int Repo<T>::existenta(const T& t) {
+	//Date de intreare: t - constanta care reprezinta o clasa
+	for (size_t i = 0; i < v.size(); i++) {
+		if (v[i] == t)
+			return i; // Returneaza pozitia itemului dorit
+	}
+	return -1; // In acset caz nu exista nici un astfel de item
 }
 
 template <class T> ostream & operator<< <>(ostream & os, const Repo<T>  r) {

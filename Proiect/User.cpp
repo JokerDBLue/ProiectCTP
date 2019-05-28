@@ -8,11 +8,20 @@ User::User():ContBancar()
 	this->bilete;
 }
 
-/*User::User(string cod, string codspate, float balans, string user, string parola):ContBancar(cod,codspate, balans)
+User::User(string cod, string codspate, float balans, string user, string parola, vector<Bilet> bilete, CosCumparaturi cosul):ContBancar(cod,codspate, balans)
 {
 	this->user = user;
 	this->parola = parola;
-}*/
+	this->bilete = bilete;
+}
+
+User::User(const User & u): ContBancar(u)
+{
+	this->user = u.user;
+	this->parola = u.parola;
+	this->bilete = u.bilete;
+	this->cosul = u.cosul;
+}
 
 string User::GetParola()
 {
@@ -24,9 +33,34 @@ string User::GetUser()
 	return user;
 }
 
+float User::getTotal()
+{
+	return cosul.costTotal();
+}
+
 void User::SetUser(string user)
 {
 	this->user = user;
+}
+
+void User::addBilet(Bilet b)
+{
+	bilete.push_back(b);
+}
+
+vector<Bilet> User::inventar()
+{
+	return bilete;
+}
+
+void User::addInCos(Bilet b, int cant)
+{
+	cosul.adaugaInCos(b, cant);
+}
+
+CosCumparaturi User::getCosul()
+{
+	return cosul;
 }
 
 bool User::operator==(const User & u)
@@ -43,4 +77,11 @@ void User::SetParola(string parola)
 
 User::~User()
 {
+}
+
+ostream & operator<<(ostream & os, const User & u)
+{
+	os << "Username: " << u.user << endl;
+	os << "Cod: " << u.cod << endl;
+	return os;
 }

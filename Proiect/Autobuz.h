@@ -28,6 +28,7 @@ public:
 	void setCapete(string c);
 	void setOrar(vector<string> o);
 	void setRuta(vector<string> r);
+	bool oAnumitaRuta(string inceput, string sfarsit);
 	friend ostream &operator<<(ostream &os, const Autobuz a);
 
 	~Autobuz();
