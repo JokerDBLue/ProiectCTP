@@ -23,6 +23,16 @@ CosCumparaturi::CosCumparaturi(const CosCumparaturi & cc)
 	this->pret = cc.pret;
 }
 
+vector<Bilet> CosCumparaturi::getB()
+{
+	return b;
+}
+
+vector<int> CosCumparaturi::getCant()
+{
+	return cant;
+}
+
 void CosCumparaturi::adaugaInCos(Bilet biletul, int c)
 {
 	//Date de intrare: biletul - tipul de bilet care cumparatorul doreste sa-l adauge

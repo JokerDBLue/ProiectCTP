@@ -14,6 +14,10 @@ public:
 	CosCumparaturi(vector<Bilet> b, vector<int> cant, vector<float> pret);
 	CosCumparaturi(const CosCumparaturi& cc);
 
+	//Get
+	vector<Bilet> getB();
+	vector<int> getCant();
+
 	//Adaugarea si stergerea de elemente
 	void adaugaInCos(const Bilet biletul, int c);
 	void stergeElem(int i);

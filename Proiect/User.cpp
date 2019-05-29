@@ -8,7 +8,7 @@ User::User():ContBancar()
 	this->bilete;
 }
 
-User::User(string cod, string codspate, float balans, string user, string parola, vector<Bilet> bilete, CosCumparaturi cosul):ContBancar(cod,codspate, balans)
+User::User(string cod, string codspate, float balans, string user, string parola, vector<Bilet> bilete):ContBancar(cod,codspate, balans)
 {
 	this->user = user;
 	this->parola = parola;
@@ -75,13 +75,24 @@ void User::SetParola(string parola)
 	this->parola = parola;
 }
 
+void User::cumparare()
+{
+	vector<Bilet> a = cosul.getB();
+	vector<int> b = cosul.getCant();
+
+	for (size_t i = 0; i < a.size(); i++)
+		for (size_t j = 0; j < b[i]; j++)
+			bilete.push_back(a[i]);
+	cosul.~CosCumparaturi();
+
+}
+
 User::~User()
 {
 }
 
 ostream & operator<<(ostream & os, const User & u)
 {
-	os << "Username: " << u.user << endl;
-	os << "Cod: " << u.cod << endl;
+	os << u.user << "," << u.parola;
 	return os;
 }

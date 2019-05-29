@@ -19,10 +19,16 @@ int Login::VerifyLogin(string user, string parola) // Intoarce nr de ordine al u
 	return useri.existenta(u);
 }
 
-void Login::Register(User u)
+void Login::Register(string user, string parola, string cod, string codspate)
 {
+	User u;
+	u.SetBalans(0);
+	u.SetCod(cod);
+	u.SetCodSpate(codspate);
+	u.SetUser(user);
+	u.SetParola(parola);
 	useri.addElem(u);
-	//useri.addToFile("useri.csv");
+	useri.addusertofile("useri.txt");
 }
 
 void Login::WriteRegister()
@@ -32,5 +38,5 @@ void Login::WriteRegister()
 
 void Login::ReadUseri()
 {
-	//useri.readFromFileUseri("useri.csv");
+	useri.readFromFileUseri("useri.txt");
 }

@@ -1,17 +1,17 @@
 #pragma once
 #include <iostream>
 #include "User.h"
-#include "RepoFile.h"
+#include "Repo.h"
 using namespace std;
 //Operatii logice specifice pt clasa user
 class Login
 {
 protected:
-	RepoFile<User> useri;
+	Repo<User> useri;
 public:
 	Login();
 	int VerifyLogin(string user, string parola);
-	void Register(User u);
+	void Register(string user, string parola, string cod, string codspate);
 	void WriteRegister(); // schimbat denumirea
 	void ReadUseri(); // schimbat denumirea
 	virtual ~Login();

@@ -1,6 +1,6 @@
 ﻿  Controller.cpp
-  Login.cpp
   Proiect.cpp
-  RepoFile.cpp
+  UI.cpp
   Generating Code...
+d:\dateproiect\proiect\controller.cpp(45): warning C4715: 'Controller::cuatareLinie': not all control paths return a value
   Proiect.vcxproj -> D:\DateProiect\Proiect\Debug\Proiect.exe

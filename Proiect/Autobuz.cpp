@@ -6,16 +6,16 @@ Autobuz::Autobuz()
 {
 	this->zona = 1;
 	this->numar = "";
-	this->capete = "";
+	this->zi = "";
 	this->orar;
 	this->ruta;
 }
 
-Autobuz::Autobuz(int zona, string numar, string capete, vector<string> orar, vector<string> ruta)
+Autobuz::Autobuz(int zona, string numar, string zi, vector<vector<string> > orar, vector<string> ruta)
 {
 	this->zona = zona;
 	this->numar = numar;
-	this->capete = capete;
+	this->zi = zi;
 	this->orar = orar;
 	this->ruta = ruta;
 }
@@ -24,7 +24,7 @@ Autobuz::Autobuz(const Autobuz & a)
 {
 	this->zona = a.zona;
 	this->numar = a.numar;
-	this->capete = a.capete;
+	this->zi = a.zi;
 	this->orar = a.orar;
 	this->ruta = a.ruta;
 }
@@ -39,12 +39,12 @@ string Autobuz::getNumar()
 	return this->numar;
 }
 
-string Autobuz::getCapete()
+string Autobuz::getZi()
 {
-	return this->capete;
+	return this->zi;
 }
 
-vector<string> Autobuz::getOrar()
+vector<vector<string> > Autobuz::getOrar()
 {
 	return this->orar;
 }
@@ -64,12 +64,12 @@ void Autobuz::setNumar(string nr)
 	this->numar = nr;
 }
 
-void Autobuz::setCapete(string c)
+void Autobuz::setZi(string z)
 {
-	this->capete = c;
+	this->zi = z;
 }
 
-void Autobuz::setOrar(vector<string> o)
+void Autobuz::setOrar(vector<vector<string> > o)
 {
 	this->orar = o;
 }
@@ -79,31 +79,19 @@ void Autobuz::setRuta(vector<string> r)
 	this->ruta = r;
 }
 
-bool Autobuz::oAnumitaRuta(string inceput, string sfarsit)
-{
-	size_t i = 0;
-	while ((i < ruta.size()) && (ruta[i] != inceput))
-	{
-		i++;
-	}
-	for (size_t j = i + 1; j < ruta.size(); j++)
-	{
-		if (ruta[j] == sfarsit)
-			return true;
-	}
-	return false;
-}
-
 ostream & operator<<(ostream & os, const Autobuz a)
 {
-	os << "Autobuzul " << a.numar << ": " << a.capete << endl << "Zona " << a.zona << endl;
+	os << "Autobuzul " << a.numar << ": " << endl << "Zona " << a.zona << endl;
 	os << "Ruta: " << endl;
 	for (size_t i = 0; i < a.ruta.size(); i++)
 		os << a.ruta[i] << ", ";
-	os << endl;
 	os << "Orar: " << endl;
 	for (size_t i = 0; i < a.orar.size(); i++)
-		os << a.orar[i] << " ";
+	{
+		cout << endl;
+		for (size_t j = 0; j < a.orar[i].size(); j++)
+			os << a.orar[i][j] << " ";
+	}
 	return os;
 }
 Autobuz::~Autobuz()
@@ -111,3 +99,5 @@ Autobuz::~Autobuz()
 	this->orar.clear();
 	this->ruta.clear();
 }
+
+
