@@ -19,7 +19,7 @@ int Login::VerifyLogin(string user, string parola) // Intoarce nr de ordine al u
 	return useri.existenta(u);
 }
 
-void Login::Register(string user, string parola, string cod, string codspate)
+void Login::Register(string user, string parola, string cod, string codspate, string file_name)
 {
 	User u;
 	u.SetBalans(0);
@@ -28,7 +28,7 @@ void Login::Register(string user, string parola, string cod, string codspate)
 	u.SetUser(user);
 	u.SetParola(parola);
 	useri.addElem(u);
-	useri.addusertofile("useri.txt");
+	useri.addusertofile(file_name);
 }
 
 void Login::WriteRegister()
@@ -36,7 +36,7 @@ void Login::WriteRegister()
 	
 }
 
-void Login::ReadUseri()
+void Login::ReadUseri(string file_name)
 {
-	useri.readFromFileUseri("useri.txt");
+	useri.readFromFileUseri(file_name);
 }

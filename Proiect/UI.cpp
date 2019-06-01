@@ -145,7 +145,7 @@ void UI::clearScreen()
 
 void UI::citesteDatele()
 {
-	c.ReadUseri();
+	c.ReadUseri("useri.txt");
 	c.readBilete("bilete.txt");
 	c.readAutobuze("M30.txt");
 	c.readAutobuze("M31.txt");
@@ -346,7 +346,7 @@ void UI::comanda()
 						parola = citesteParola();
 						cod = citesteCod();
 						codspate = citesteCodspate();
-						c.Register(user,parola,cod,codspate);
+						c.Register(user,parola,cod,codspate,"useri.txt");
 						clearScreen();
 					}
 	}

@@ -94,6 +94,11 @@ bool Autobuz::oAnumitaRuta(string inceput, string sfarsit)
 	return false;
 }
 
+bool Autobuz::operator==(const Autobuz & a)
+{
+	return (a.numar == this->numar);
+}
+
 ostream & operator<<(ostream & os, const Autobuz a)
 {
 	os << "Autobuzul " << a.numar << ": " << endl << "Zona " << a.zona << endl;

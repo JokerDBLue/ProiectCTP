@@ -1,0 +1,2 @@
+Mariuca,floricelepecampii,3,2.5,40,1,4,50,2,5,60,3,78654,345, 234.56
+Alin,kaname,0,5677,566, 12.09

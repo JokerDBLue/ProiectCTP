@@ -27,6 +27,7 @@ public:
 	void setOrar(vector<vector<string> > o);
 	void setRuta(vector<string> r);
 	bool oAnumitaRuta(string inceput, string sfarsit);
+	bool operator==(const Autobuz & a);
 	friend ostream &operator<<(ostream &os, const Autobuz a);
 
 	~Autobuz();

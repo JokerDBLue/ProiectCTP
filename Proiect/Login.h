@@ -11,9 +11,9 @@ protected:
 public:
 	Login();
 	int VerifyLogin(string user, string parola);
-	void Register(string user, string parola, string cod, string codspate);
+	void Register(string user, string parola, string cod, string codspate, string file_name);
 	void WriteRegister(); // schimbat denumirea
-	void ReadUseri(); // schimbat denumirea
+	void ReadUseri(string file_name); // schimbat denumirea
 	virtual ~Login();
 };
 

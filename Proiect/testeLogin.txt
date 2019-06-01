@@ -1,0 +1,7 @@
+Fivaro,ana,2,2.5,30,2,2.5,30,6, 663 778 990, 336, 900.5
+Ronal,Yup,0, 673 778 000, 143, 50.5
+Mihai, Adrian,0, 566, 233, 0
+Ion, Vasile,0, 334555222, 345, 0
+Andreiusca,lime,0,3456,345, 0
+Andreiusca,lime,0,3456,345, 0
+Andreiusca,lime,0,3456,345, 0

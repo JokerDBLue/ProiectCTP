@@ -159,6 +159,12 @@
     <ClInclude Include="Login.h" />
     <ClInclude Include="Repo.h" />
     <ClInclude Include="TesteAutobuz.h" />
+    <ClInclude Include="TesteBilet.h" />
+    <ClInclude Include="TesteContBancar.h" />
+    <ClInclude Include="TesteCosCumparaturi.h" />
+    <ClInclude Include="TesteLogin.h" />
+    <ClInclude Include="TesteRepo.h" />
+    <ClInclude Include="TesteUser.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
@@ -172,8 +178,17 @@
     <ClCompile Include="Proiect.cpp" />
     <ClCompile Include="Repo.cpp" />
     <ClCompile Include="TesteAutobuz.cpp" />
+    <ClCompile Include="TesteBilet.cpp" />
+    <ClCompile Include="TesteContBancar.cpp" />
+    <ClCompile Include="TesteCosCumparaturi.cpp" />
+    <ClCompile Include="TesteLogin.cpp" />
+    <ClCompile Include="TesteRepo.cpp" />
+    <ClCompile Include="TesteUser.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="testeLogin.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
