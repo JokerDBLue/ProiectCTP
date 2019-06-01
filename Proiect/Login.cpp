@@ -22,6 +22,11 @@ int Login::VerifyLogin(string user, string parola) // Intoarce nr de ordine al u
 void Login::Register(string user, string parola, string cod, string codspate, string file_name)
 {
 	User u;
+	for (int i = 0; i < useri.getSize(); i++)
+	{
+		if (useri.getElem(i).GetUser() == user)
+			throw "User already exist!\n";
+	}
 	u.SetBalans(0);
 	u.SetCod(cod);
 	u.SetCodSpate(codspate);
@@ -31,9 +36,9 @@ void Login::Register(string user, string parola, string cod, string codspate, st
 	useri.addusertofile(file_name);
 }
 
-void Login::WriteRegister()
+void Login::WriteRegister(string file_name)
 {
-	
+	useri.addusertofile(file_name);
 }
 
 void Login::ReadUseri(string file_name)

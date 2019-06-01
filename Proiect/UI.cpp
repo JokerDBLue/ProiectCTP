@@ -48,7 +48,8 @@ string UI::citesteCod()
 	cout << "Cod: ";
 	char s[30];
 	cin >> s;
-	if (strlen(s) != 6)
+	cout << strlen(s) << endl;
+	while (strlen(s) != 9)
 	{
 		cout << "Cod: ";
 		cin >> s;
@@ -61,7 +62,7 @@ string UI::citesteCodspate()
 	cout << "Codspate: ";
 	char s[30];
 	cin >> s;
-	if (strlen(s) != 3)
+	while (strlen(s) != 3)
 	{
 		cout << "Codspate: ";
 		cin >> s;
@@ -209,6 +210,7 @@ void UI::cumparaturi(int nrUser)
 						if (rez == 0)
 						{
 							cout << "Plata a fost facuta cu succes\n";
+							c.WriteRegister("useri.txt");
 						}
 						else
 							if (rez == 1)
@@ -346,7 +348,12 @@ void UI::comanda()
 						parola = citesteParola();
 						cod = citesteCod();
 						codspate = citesteCodspate();
-						c.Register(user,parola,cod,codspate,"useri.txt");
+						try {
+							c.Register(user, parola, cod, codspate, "useri.txt");
+						}catch (...)
+						{
+							cout << "User already exist\n";
+						}
 						clearScreen();
 					}
 	}

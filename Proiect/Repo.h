@@ -181,7 +181,7 @@ template<class T> void Repo<T>::addusertofile(string filename)
 {
 	ofstream g(filename);
 
-	for (size_t i = 0; i < v.size(); i++)
+	for (size_t i = 0; i < v.size() - 1; i++)
 	{
 		g << v[i].GetUser() << "," << v[i].GetParola() << ",";
 		vector<Bilet> j;
@@ -191,6 +191,14 @@ template<class T> void Repo<T>::addusertofile(string filename)
 			g << j[k].getPret() << "," << j[k].getValabilitate() << "," << j[k].getZona() << ",";
 		g << v[i].GetCod() << "," << v[i].GetCodSpate() << ", " << v[i].GetBalans() << endl;
 	}
+	size_t i = v.size() - 1;
+	g << v[i].GetUser() << "," << v[i].GetParola() << ",";
+	vector<Bilet> j;
+	j = v[i].inventar();
+	g << j.size() << ",";
+	for (size_t k = 0; k < j.size(); k++)
+		g << j[k].getPret() << "," << j[k].getValabilitate() << "," << j[k].getZona() << ",";
+	g << v[i].GetCod() << "," << v[i].GetCodSpate() << ", " << v[i].GetBalans();
 	g.close();
 
 }

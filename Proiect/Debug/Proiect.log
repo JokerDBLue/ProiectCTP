@@ -1,14 +1,2 @@
-﻿  Autobuz.cpp
-  Controller.cpp
-  Login.cpp
-  Proiect.cpp
-  Repo.cpp
-  TesteAutobuz.cpp
-  TesteLogin.cpp
-  TesteRepo.cpp
-d:\dateproiect\proiect\testerepo.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\dateproiect\proiect\testerepo.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
-  UI.cpp
-  Generating Code...
-d:\dateproiect\proiect\controller.cpp(45): warning C4715: 'Controller::cuatareLinie': not all control paths return a value
+﻿  UI.cpp
   Proiect.vcxproj -> D:\DateProiect\Proiect\Debug\Proiect.exe
