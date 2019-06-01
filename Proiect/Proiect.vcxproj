@@ -158,7 +158,6 @@
     <ClInclude Include="CosCumparaturi.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Repo.h" />
-    <ClInclude Include="RepoFile.h" />
     <ClInclude Include="TesteAutobuz.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="User.h" />
@@ -172,7 +171,6 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Proiect.cpp" />
     <ClCompile Include="Repo.cpp" />
-    <ClCompile Include="RepoFile.cpp" />
     <ClCompile Include="TesteAutobuz.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="User.cpp" />

@@ -79,21 +79,36 @@ void Autobuz::setRuta(vector<string> r)
 	this->ruta = r;
 }
 
+bool Autobuz::oAnumitaRuta(string inceput, string sfarsit)
+{
+	int k = 0;
+	for (size_t i = 0; i < ruta.size(); i++)
+		if (ruta[i] == inceput)
+		{
+			k = i;
+		}
+	for (size_t i = k; i < ruta.size(); i++)
+		if (ruta[i] == sfarsit)
+			return true;
+
+	return false;
+}
+
 ostream & operator<<(ostream & os, const Autobuz a)
 {
 	os << "Autobuzul " << a.numar << ": " << endl << "Zona " << a.zona << endl;
-	os << "Ruta: " << endl;
-	for (size_t i = 0; i < a.ruta.size(); i++)
-		os << a.ruta[i] << ", ";
 	os << "Orar: " << endl;
+
 	for (size_t i = 0; i < a.orar.size(); i++)
 	{
-		cout << endl;
+		os << a.ruta[i] << ": ";
 		for (size_t j = 0; j < a.orar[i].size(); j++)
-			os << a.orar[i][j] << " ";
+			os << a.orar[j][i] << " ";
+		cout << endl;
 	}
 	return os;
 }
+
 Autobuz::~Autobuz()
 {
 	this->orar.clear();

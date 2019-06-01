@@ -15,11 +15,13 @@ public:
 	Repo<Autobuz> cautareAuto(string inceput, string final, string data);
 	Autobuz cuatareLinie(string linie);
 	Repo<Bilet> bileteValabile();
-	void cumparareBilete(int nrBilete, int nrUser, int zona, float numerar);
+	CosCumparaturi getCos(int nrUser);
+	void cumparareBilete(int nrBilete, int nrUser, int zona);
 	Repo<Bilet> vizualizireInventar(int nrUser);
+	void stergeBilet(int nrUser, int nrBilet);
+	void schimbaCant(int nrUser, int nrBilet, int newCant);
 	void golireCos(int nrUser);
-	int finalizarePlata(string cod, string codSpate, float balans, int nrUser);
+	int finalizarePlata(string cod, string codSpate, int nrUser);
 	//accesare clasa login
 	~Controller();
 };
-

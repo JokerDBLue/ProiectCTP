@@ -48,6 +48,11 @@ string UI::citesteCod()
 	cout << "Cod: ";
 	char s[30];
 	cin >> s;
+	if (strlen(s) != 6)
+	{
+		cout << "Cod: ";
+		cin >> s;
+	}
 	return s;
 }
 
@@ -56,7 +61,86 @@ string UI::citesteCodspate()
 	cout << "Codspate: ";
 	char s[30];
 	cin >> s;
+	if (strlen(s) != 3)
+	{
+		cout << "Codspate: ";
+		cin >> s;
+	}
 	return s;
+}
+
+string UI::datiInceput()
+{
+	cout << "Statie de inceput: ";
+	char s[30];
+	cin >> s;
+	return s;
+}
+
+string UI::datiSfarsit()
+{
+	cout << "Statie de sfarsit: ";
+	char s[30];
+	cin >> s;
+	return s;
+}
+
+int UI::datiNrBilet()
+{
+	cout << "Nr de ordine al biletului: ";
+	int nr;
+	while (!(cin >> nr)) {
+		cin.ignore();
+		cin.clear();
+		cout << "Nr de ordine al biletului: ";
+	}
+	return nr;
+}
+
+int UI::datiCantNoua()
+{
+	cout << "Dati cantitatea noua: ";
+	int nr;
+	while (!(cin >> nr)) {
+		cin.ignore();
+		cin.clear();
+		cout << "Dati cantitatea noua: ";
+	}
+	return nr;
+}
+
+int UI::datiTipBilet()
+{
+	cout << "Zona pentru care doriti biletul: ";
+	int z;
+	while (!(cin >> z)) {
+		cin.ignore();
+		cin.clear();
+		cout << "Zona pentru care doriti biletul: ";
+	}
+	return z;
+}
+
+int UI::datiCantBilete()
+{
+	int c;
+	cout << "Dati numarul de bilete dorite: ";
+	while (!(cin >> c)) {
+		cin.ignore();
+		cin.clear();
+		cout << "Dati numarul de bilete dorite: ";
+	}
+	return c;
+}
+
+void UI::clearScreen()
+{
+	string com;
+	while (com != "inapoi")
+	{
+		cout << "Scrieti 'inapoi' pentu a merge la meniul principal\n";
+		com = datiComanda();
+	}
 }
 
 void UI::citesteDatele()
@@ -77,9 +161,74 @@ void UI::infoBilete()
 	cout << c.bileteValabile();
 }
 
+void UI::cumparaturi(int nrUser)
+{
+	string com;
+	while (com != "menu")
+	{
+		system("CLS");
+		cout << "Scrieti 'adauga' pentru a adauga in cos\n";
+		cout << "Scrieti 'sterge' pentru a sterge un element din cos\n";
+		cout << "Scrieti 'schimba' pentru a schimba cantitatea unui element din cos\n";
+		cout << "Scrieti 'finalizare' pentru a finaliza comanda\n";
+		cout << "Scrieti 'menu' pentru a iesi\n";
+		cout << "Cosul de cumparaturi\n";
+		cout << c.getCos(nrUser) << endl;
+		com = datiComanda();
+		if (com == "adauga")
+		{
+			int zona;
+			int cant;
+			zona = datiTipBilet();
+			cant = datiCantBilete();
+			c.cumparareBilete(cant, nrUser, zona);
+		}
+		else
+			if (com == "sterge")
+			{
+				int nrBilet;
+				nrBilet = datiNrBilet();
+				c.stergeBilet(nrUser, nrBilet);
+			}
+			else
+				if (com == "schimba")
+				{
+					int nrBilet;
+					int newCant;
+					nrBilet = datiNrBilet();
+					newCant = datiCantNoua();
+					c.schimbaCant(nrUser, nrBilet, newCant);
+				}
+				else
+					if (com == "finalizare")
+					{
+						string cod, codspate;
+						cod = citesteCod();
+						codspate = citesteCodspate();
+						int rez = c.finalizarePlata(cod, codspate, nrUser);
+						if (rez == 0)
+						{
+							cout << "Plata a fost facuta cu succes\n";
+						}
+						else
+							if (rez == 1)
+							{
+								cout << "Datele introduse nu sunt corecte\n";
+							}
+							else
+								if (rez == 2)
+								{
+									cout << "Nu aveti destui bani in contul bancar\n";
+								}
+						clearScreen();
+					}
+	}
+}
+
 void UI::optiuniUtilizator()
 {
 	cout << "Scrieti 'linie' pentru a cauta o linie " << endl;
+	cout << "Scrieti 'statii' pentru a cauta autobuzele care merg de la o stati la alta" << endl;
 	cout << "Scrieti 'bilete' pentru a cauta biletele valabile " << endl;
 	cout << "Scrieti 'inventar' pentru a va putea vedea biletele " << endl;
 	cout << "Scrieti 'cumparaturi' pentru a putea cumpara " << endl;
@@ -90,6 +239,7 @@ void UI::optiuniUtilizator()
 void UI::optiuni()
 {
 	cout << "Scrieti 'linie' pentru a cauta o linie " << endl;
+	cout << "Scrieti 'statii' pentru a cauta autobuzele care merg de la o stati la alta" << endl;
 	cout << "Scrieti 'bilete' pentru a cauta biletele valabile " << endl;
 	cout << "Scrieti 'login' pentru a va loga" << endl;
 	cout << "Scrieti 'register' pentru a va creea un cont" << endl;
@@ -102,24 +252,42 @@ void UI::comandaUtilizator(int nrUser)
 	string com = "";
 	while ((com != "exit") && (com != "logout"))
 	{
+		system("CLS");
 		optiuniUtilizator();
 		com = datiComanda();
-		if (com == "cautare linie")
+		if (com == "linie")
 		{
 			string linie;
 			linie = citesteLinia();
 			cout << c.cuatareLinie(linie);
+			clearScreen();
 		}
 		else
-			if (com == "bilete")
+			if (com == "statii")
 			{
-				infoBilete();
+				string inceput, sfarsit;
+				inceput = datiInceput();
+				sfarsit = datiSfarsit();
+				cout << c.cautareAuto(inceput, sfarsit, "L-V");
+				clearScreen();
 			}
 			else
-				if (com == "inventar")
+				if (com == "bilete")
 				{
-					cout << c.vizualizireInventar(nrUser);
+					infoBilete();
+					clearScreen();
 				}
+				else
+					if (com == "inventar")
+					{
+						cout << c.vizualizireInventar(nrUser);
+						clearScreen();
+					}
+					else
+						if (com == "cumparaturi")
+						{
+							cumparaturi(nrUser);
+						}
 	}
 }
 
@@ -129,6 +297,7 @@ void UI::comanda()
 	string com = "";
 	while (com != "exit")
 	{
+		system("CLS");
 		optiuni();
 		com = datiComanda();
 		if (com == "linie")
@@ -136,11 +305,22 @@ void UI::comanda()
 			string linie;
 			linie = citesteLinia();
 			cout << c.cuatareLinie(linie);
+			clearScreen();
+		}
+		else
+		if (com == "statii")
+		{
+			string inceput, sfarsit;
+			inceput = datiInceput();
+			sfarsit = datiSfarsit();
+			cout << c.cautareAuto(inceput, sfarsit, "L-V");
+			clearScreen();
 		}
 		else
 			if (com == "bilete")
 			{
 				infoBilete();
+				clearScreen();
 			}
 			else
 				if (com == "login")
@@ -152,7 +332,10 @@ void UI::comanda()
 					if (d != -1)
 						comandaUtilizator(d);
 					else
+					{
 						cout << "User inexistent! :(" << endl;
+						clearScreen();
+					}
 				}
 				else
 					if (com == "register")
@@ -164,6 +347,7 @@ void UI::comanda()
 						cod = citesteCod();
 						codspate = citesteCodspate();
 						c.Register(user,parola,cod,codspate);
+						clearScreen();
 					}
 	}
 }

@@ -20,6 +20,13 @@ public:
 	int getSize();
 	void dltElem(int i);
 	int existenta(const T& t);
+	//functii intermediare pt User
+	void addInCos(int nrUser, Bilet b, int nr);
+	void stergeBilet(int nrUser, int nrBilet);
+	void schimbaCant(int nrUser, int nrBilet, int newCant);
+	void golireCos(int nrUser);
+
+
 	void readFromFileUseri(string file_name);
 	void readFromFileAutobuz(string file_name);
 	void readFromFileBilete(string file_name);
@@ -71,6 +78,23 @@ template <class T> int Repo<T>::existenta(const T& t) {
 			return i; // Returneaza pozitia itemului dorit
 	}
 	return -1; // In acset caz nu exista nici un astfel de item
+}
+
+template <class T> void Repo<T>::addInCos(int nrUser, Bilet b, int nr) {
+	this->v[nrUser].addInCos(b,nr);
+}
+
+template <class T> void Repo<T>::stergeBilet(int nrUser, int nrBilet) {
+	this->v[nrUser].stergeBilet(nrBilet);
+}
+
+template <class T> void Repo<T>::schimbaCant(int nrUser, int nrBilet, int newCant) {
+	this->v[nrUser].schimbaCant(nrBilet, newCant);
+}
+
+template <class T> void Repo<T>::golireCos(int nrUser)
+{
+	this->v[nrUser].cumparare();
 }
 
 template <class T> void Repo<T>::readFromFileUseri(string file_name) {

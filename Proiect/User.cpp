@@ -55,12 +55,22 @@ vector<Bilet> User::inventar()
 
 void User::addInCos(Bilet b, int cant)
 {
-	cosul.adaugaInCos(b, cant);
+	this->cosul.adaugaInCos(b, cant);
+}
+
+void User::schimbaCant(int nrBilet, int newCant)
+{
+	cosul.changeCant(nrBilet, newCant);
+}
+
+void User::stergeBilet(int nrBilet)
+{
+	cosul.stergeElem(nrBilet);
 }
 
 CosCumparaturi User::getCosul()
 {
-	return cosul;
+	return this->cosul;
 }
 
 bool User::operator==(const User & u)
@@ -79,12 +89,10 @@ void User::cumparare()
 {
 	vector<Bilet> a = cosul.getB();
 	vector<int> b = cosul.getCant();
-
 	for (size_t i = 0; i < a.size(); i++)
 		for (size_t j = 0; j < b[i]; j++)
 			bilete.push_back(a[i]);
 	cosul.~CosCumparaturi();
-
 }
 
 User::~User()

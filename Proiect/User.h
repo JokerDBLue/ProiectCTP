@@ -24,6 +24,8 @@ public:
 	void addBilet(Bilet b);
 	vector<Bilet> inventar(); // returneaza inventarul
 	void addInCos(Bilet b, int cant); //Adauga in cos
+	void schimbaCant(int nrBilet, int newCant);
+	void stergeBilet(int nrBilet);
 	CosCumparaturi getCosul(); // returneza cosul de cumparaturi
 	bool operator==(const User& u);
 	void cumparare();
