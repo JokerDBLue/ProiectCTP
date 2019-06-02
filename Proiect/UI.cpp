@@ -156,8 +156,11 @@ void UI::citesteDatele()
 {
 	c.ReadUseri("useri.txt");
 	c.readBilete("bilete.txt");
-	c.readAutobuze("M30.txt");
+	c.readAutobuze("30.txt");
+	c.readAutobuze("30W.txt");
 	c.readAutobuze("M31.txt");
+	c.readAutobuze("24.txt");
+	c.readAutobuze("24B.txt");
 }
 
 void UI::login()
@@ -259,7 +262,6 @@ void UI::optiuniUtilizator()
 	cout << "Scrieti 'inventar' pentru a va putea vedea biletele " << endl;
 	cout << "Scrieti 'cumparaturi' pentru a putea cumpara " << endl;
 	cout << "Scrieti 'logout' pentru a va deloga" << endl;
-	cout << "Scrieti 'exit' pentru a iesi " << endl;
 }
 
 void UI::optiuni()

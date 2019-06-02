@@ -101,13 +101,13 @@ bool Autobuz::operator==(const Autobuz & a)
 
 ostream & operator<<(ostream & os, const Autobuz a)
 {
-	os << "Autobuzul " << a.numar << ": " << endl << "Zona " << a.zona << endl;
+	os << "Autobuzul " << a.numar << ": " << "Zona " << a.zona << endl;
 	os << "Orar: " << endl;
 
-	for (size_t i = 0; i < a.orar.size(); i++)
+	for (size_t i = 0; i < a.ruta.size(); i++)
 	{
 		os << a.ruta[i] << ": ";
-		for (size_t j = 0; j < a.orar[i].size(); j++)
+		for (size_t j = 0; j < a.orar.size(); j++)
 			os << a.orar[j][i] << " ";
 		cout << endl;
 	}

@@ -153,12 +153,11 @@ template <class T> void Repo<T>::readFromFileAutobuz(string file_name) {
 			oo.push_back(s);
 
 		}
-
 		o.push_back(oo);
 	}
 
 	v.push_back(Autobuz(zona, numar, zi, o, r));
-
+	oo.clear();
 	f.close();
 }
 
