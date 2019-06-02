@@ -11,11 +11,6 @@ string UI::citesteLinia()
 	cout << "Dati linia dorita: ";
 	char s[30];
 	cin >> s;
-	while ((strcmp(s, "M31") != 0) && (strcmp(s, "M30") != 0))
-	{
-		cout << "Linia nu exista, va rugam sa introduceti alta linie: ";
-		cin >> s;
-	}
 	return s;
 }
 
@@ -48,7 +43,6 @@ string UI::citesteCod()
 	cout << "Cod: ";
 	char s[30];
 	cin >> s;
-	cout << strlen(s) << endl;
 	while (strlen(s) != 9)
 	{
 		cout << "Cod: ";
@@ -74,7 +68,8 @@ string UI::datiInceput()
 {
 	cout << "Statie de inceput: ";
 	char s[30];
-	cin >> s;
+	cin.ignore();
+	cin.getline(s, sizeof s);
 	return s;
 }
 
@@ -82,7 +77,7 @@ string UI::datiSfarsit()
 {
 	cout << "Statie de sfarsit: ";
 	char s[30];
-	cin >> s;
+	cin.getline(s, sizeof s);
 	return s;
 }
 
@@ -388,13 +383,6 @@ void UI::comanda()
 			}
 			try {
 				cout << c.cautareAuto(inceput, sfarsit, ziua);
-			}
-			catch (exception& e)
-			{
-				cout << e.what();
-			}
-			try {
-				cout << c.cautareAuto(inceput, sfarsit, "L-V");
 			}
 			catch (exception& e)
 			{
