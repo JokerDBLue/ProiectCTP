@@ -1,5 +1,5 @@
 #include "UI.h"
-
+#include <ctime>
 
 
 UI::UI()
@@ -83,6 +83,19 @@ string UI::datiSfarsit()
 	cout << "Statie de sfarsit: ";
 	char s[30];
 	cin >> s;
+	return s;
+}
+
+string UI::datiZiua()
+{
+	cout << "Ziua dorita 'L-V'(luni pana vineri) sau 'S-D'(sambata si duminica) sau 'auto'(pentru ziua curenta)\n";
+	char s[30];
+	cin >> s;
+	while ((strcmp(s, "L-V") != 0) && (strcmp(s, "S-D") != 0) && (strcmp(s, "auto") != 0))
+	{
+		cout << "Ziua dorita 'L-V'(luni pana vineri) sau 'S-D'(sambata si duminica) sau 'auto'(pentru ziua curenta)\n";
+		cin >> s;
+	}
 	return s;
 }
 
@@ -182,14 +195,25 @@ void UI::cumparaturi(int nrUser)
 			int cant;
 			zona = datiTipBilet();
 			cant = datiCantBilete();
-			c.cumparareBilete(cant, nrUser, zona);
+			try {
+				c.cumparareBilete(cant, nrUser, zona);
+			}
+			catch(exception& e)
+			{
+				cout << e.what();
+			}
 		}
 		else
 			if (com == "sterge")
 			{
 				int nrBilet;
 				nrBilet = datiNrBilet();
-				c.stergeBilet(nrUser, nrBilet);
+				try {
+					c.stergeBilet(nrUser, nrBilet);
+				}
+				catch(exception& e){
+					cout << e.what();
+				}
 			}
 			else
 				if (com == "schimba")
@@ -198,7 +222,12 @@ void UI::cumparaturi(int nrUser)
 					int newCant;
 					nrBilet = datiNrBilet();
 					newCant = datiCantNoua();
-					c.schimbaCant(nrUser, nrBilet, newCant);
+					try {
+						c.schimbaCant(nrUser, nrBilet, newCant);
+					}
+					catch(exception& e){
+						cout << e.what();
+					}
 				}
 				else
 					if (com == "finalizare")
@@ -261,16 +290,40 @@ void UI::comandaUtilizator(int nrUser)
 		{
 			string linie;
 			linie = citesteLinia();
-			cout << c.cuatareLinie(linie);
+			try {
+				cout << c.cuatareLinie(linie);
+			}
+			catch (exception& e)
+			{
+				cout << e.what();
+			}
 			clearScreen();
 		}
 		else
 			if (com == "statii")
 			{
-				string inceput, sfarsit;
+				string inceput, sfarsit, ziua;
 				inceput = datiInceput();
 				sfarsit = datiSfarsit();
-				cout << c.cautareAuto(inceput, sfarsit, "L-V");
+				ziua = datiZiua();
+				if (ziua == "auto") {
+					time_t rawtime;
+					tm * timeinfo;
+					time(&rawtime);
+					timeinfo = localtime(&rawtime);
+					int wday = timeinfo->tm_wday;
+					if ((wday > 0) && (wday <= 5))
+						ziua = "L-V";
+					else
+						ziua = "S-D";
+				}
+				try {
+					cout << c.cautareAuto(inceput, sfarsit, ziua);
+				}
+				catch (exception& e)
+				{
+					cout << e.what();
+				}
 				clearScreen();
 			}
 			else
@@ -306,16 +359,47 @@ void UI::comanda()
 		{
 			string linie;
 			linie = citesteLinia();
-			cout << c.cuatareLinie(linie);
+			try {
+				cout << c.cuatareLinie(linie);
+			}
+			catch (exception& e)
+			{
+				cout << e.what();
+			}
 			clearScreen();
 		}
 		else
 		if (com == "statii")
 		{
-			string inceput, sfarsit;
+			string inceput, sfarsit, ziua;
 			inceput = datiInceput();
 			sfarsit = datiSfarsit();
-			cout << c.cautareAuto(inceput, sfarsit, "L-V");
+			ziua = datiZiua();
+			if (ziua == "auto") {
+				time_t rawtime;
+				tm * timeinfo;
+				time(&rawtime);
+				timeinfo = localtime(&rawtime);
+				int wday = timeinfo->tm_wday;
+				if ((wday > 0) && (wday <= 5))
+					ziua = "L-V";
+				else
+					ziua = "S-D";
+			}
+			try {
+				cout << c.cautareAuto(inceput, sfarsit, ziua);
+			}
+			catch (exception& e)
+			{
+				cout << e.what();
+			}
+			try {
+				cout << c.cautareAuto(inceput, sfarsit, "L-V");
+			}
+			catch (exception& e)
+			{
+				cout << e.what();
+			}
 			clearScreen();
 		}
 		else
@@ -350,9 +434,9 @@ void UI::comanda()
 						codspate = citesteCodspate();
 						try {
 							c.Register(user, parola, cod, codspate, "useri.txt");
-						}catch (...)
+						}catch (exception& e)
 						{
-							cout << "User already exist\n";
+							cout << e.what();
 						}
 						clearScreen();
 					}

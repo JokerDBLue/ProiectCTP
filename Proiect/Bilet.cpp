@@ -53,7 +53,7 @@ void Bilet::setValabilitate(int v)
 	this->valabilitate = v;
 }
 
-bool Bilet::operator==(Bilet & b)
+bool Bilet::operator==(const Bilet & b)
 {
 	if (this->pret == b.pret)
 		return true;

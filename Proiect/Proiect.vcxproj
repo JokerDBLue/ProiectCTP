@@ -88,7 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -156,6 +156,7 @@
     <ClInclude Include="ContBancar.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="CosCumparaturi.h" />
+    <ClInclude Include="TesteController.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Repo.h" />
     <ClInclude Include="TesteAutobuz.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="TesteAutobuz.cpp" />
     <ClCompile Include="TesteBilet.cpp" />
     <ClCompile Include="TesteContBancar.cpp" />
+    <ClCompile Include="TesteController.cpp" />
     <ClCompile Include="TesteCosCumparaturi.cpp" />
     <ClCompile Include="TesteLogin.cpp" />
     <ClCompile Include="TesteRepo.cpp" />

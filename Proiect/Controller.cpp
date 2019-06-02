@@ -27,11 +27,13 @@ Repo<Autobuz> Controller::cautareAuto(string inceput, string final, string data)
 	Repo<Autobuz> a1; // memoreaza lista de autobuze care merge de la o statie la alta
 	for (int i = 0; i < autobuze.getSize(); i++)
 	{
-		if (autobuze.getElem(i).oAnumitaRuta(inceput, final) == true)
+		if ((autobuze.getElem(i).oAnumitaRuta(inceput, final) == true) && (autobuze.getElem(i).getZi() == data))
 		{
 			a1.addElem(autobuze.getElem(i));
 		}
 	}
+	if (a1.getSize() == 0)
+		throw exception("Nu exista autobuze cu drum direct in data aleasa\n");
 	return a1;
 }
 
@@ -42,6 +44,7 @@ Autobuz Controller::cuatareLinie(string linie)
 		if (autobuze.getElem(i).getNumar() == linie)
 				return autobuze.getElem(i);
 	}
+	throw exception("Nu s-a gasit aceasta linie\n");
 }
 
 Repo<Bilet> Controller::bileteValabile()
@@ -65,8 +68,8 @@ void Controller::cumparareBilete(int nrBilete, int nrUser, int zona)
 	{
 		useri.addInCos(nrUser, bilete.getElem(i), nrBilete);
 	}
-	//else
-	//	throw 0;//mesaj care zice ca nu exista bilete pt aceasta zona
+	else
+		throw exception("Nu exista astefel de bilete\n");//mesaj care zice ca nu exista bilete pt aceasta zona
 }
 
 Repo<Bilet> Controller::vizualizireInventar(int nrUser)

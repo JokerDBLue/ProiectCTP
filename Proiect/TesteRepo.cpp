@@ -69,9 +69,9 @@ void testeRepo()
 	autob.addElem(a1);
 	autob.addElem(a2);
 
-	//assert(autob.getElem(1) == a2);
+	assert(autob.getElem(1) == a2);
 	autob.dltElem(0);
-	//assert(autob.getElem(0) == a2);
+	assert(autob.getElem(0) == a2);
 	assert(autob.existenta(a2) == 0);
 	assert(autob.getSize() == 1);
 	autob.~Repo();

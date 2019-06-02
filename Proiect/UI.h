@@ -15,6 +15,7 @@ public:
 	string citesteCodspate();
 	string datiInceput();
 	string datiSfarsit();
+	string datiZiua();
 	int datiNrBilet();
 	int datiCantNoua();
 	int datiTipBilet();

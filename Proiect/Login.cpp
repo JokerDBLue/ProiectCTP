@@ -25,7 +25,7 @@ void Login::Register(string user, string parola, string cod, string codspate, st
 	for (int i = 0; i < useri.getSize(); i++)
 	{
 		if (useri.getElem(i).GetUser() == user)
-			throw "User already exist!\n";
+			throw exception("Username deja folosit\n");
 	}
 	u.SetBalans(0);
 	u.SetCod(cod);

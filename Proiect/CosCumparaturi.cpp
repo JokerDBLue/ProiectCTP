@@ -58,6 +58,8 @@ void CosCumparaturi::adaugaInCos(Bilet biletul, int c)
 void CosCumparaturi::stergeElem(int i)
 {
 	//Sterge elementul de pe o anumita pozitie(i) de pe lista de cumparaturi
+	if ((i > cant.size()) || (i < 0))
+		throw exception("Acest bilet nu exista");
 	b.erase(b.begin() + i);
 	cant.erase(cant.begin() + i);
 	pret.erase(pret.begin() + i);
@@ -68,6 +70,8 @@ void CosCumparaturi::changeCant(int i, int newCant)
 	//Schimba cantitate unui element de pe o anumita pozitie
 	//Date de intrare: i - pozitia elementului;
 	//                 newCant - noua cantitate;
+	if ((i > cant.size()) || (i < 0))
+		throw exception("Acest bilet nu exista");
 	if (newCant == 0)
 		stergeElem(i);
 	else

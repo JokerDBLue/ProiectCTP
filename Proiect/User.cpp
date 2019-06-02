@@ -1,5 +1,5 @@
 #include "User.h"
-
+#include <exception>
 
 User::User():ContBancar()
 {

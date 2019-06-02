@@ -18,7 +18,7 @@ public:
 	void setPret(float p);
 	void setZona(int z);
 	void setValabilitate(int v);
-	bool operator==(Bilet &b);
+	bool operator==(const Bilet &b);
 	Bilet operator=(const Bilet &b);
 	friend ostream &operator<<(ostream& os, const Bilet &b);
 
