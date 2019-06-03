@@ -60,6 +60,8 @@ CosCumparaturi Controller::getCos(int nrUser)
 void Controller::cumparareBilete(int nrBilete, int nrUser, int zona)
 {
 	int i = 0;
+	if (nrBilete < 0)
+		throw exception("Cantitatea nu poate fi negativa\n");
 	while((i < bilete.getSize()) && (bilete.getElem(i).getZona() != zona))
 	{
 		i++;
@@ -85,6 +87,8 @@ void Controller::stergeBilet(int nrUser, int nrBilet)
 
 void Controller::schimbaCant(int nrUser, int nrBilet, int newCant)
 {
+	if (newCant < 0)
+		throw exception("Cantitatea nu poate fi negativa\n");
 	useri.schimbaCant(nrUser, nrBilet, newCant);
 }
 

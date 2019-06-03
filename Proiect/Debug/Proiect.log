@@ -1,12 +1,2 @@
 ﻿  Controller.cpp
-  Login.cpp
-  Proiect.cpp
-  Repo.cpp
-  TesteController.cpp
-  TesteLogin.cpp
-  TesteRepo.cpp
-d:\dateproiect\proiect\testerepo.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\dateproiect\proiect\testerepo.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
-  UI.cpp
-  Generating Code...
   Proiect.vcxproj -> D:\DateProiect\Proiect\Debug\Proiect.exe
