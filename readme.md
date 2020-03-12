@@ -4,6 +4,8 @@ Echipa: Loghin Mihai-Adrian,
         Irimia Costina Bianca, 
         Maier Virgil-Nicolae
 
+DESCRIERE:
+
 Cumparare bilete online CTP - Cluj.
 
 Ca și client CTP îmi doresc să am la dispoziție o aplicație prin care să pot achiziționa bilete
