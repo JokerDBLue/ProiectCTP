@@ -2,8 +2,6 @@ Proiect ProgOO, aplicatie CTP
 
 Proiect de echipa
 
-Echipa: Loghin Mihai-Adrian
-
-        Irimia Costina Bianca
-        
+Echipa: Loghin Mihai-Adrian\n
+        Irimia Costina Bianca\n
         Maier Virgil-Nicolae
