@@ -1,4 +1,4 @@
-Proiect ProgOO, aplicatie CTP
+Proiect Programare Orientata Obiect, aplicatie CTP
 
 Echipa: Loghin Mihai-Adrian, 
         Irimia Costina Bianca, 
